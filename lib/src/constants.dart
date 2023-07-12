@@ -22,3 +22,8 @@ class EVENTS {
   static final CHAT_RECEIVED_MESSAGE = 'CHATS';
   static final CHAT_GROUPS = 'CHAT_GROUPS';
 }
+
+class SOCKETTYPES {
+  static final NOTIFICATION = 'notification';
+  static final CHAT = 'chat';
+}

@@ -1,7 +1,8 @@
 name: push_socket_client_dart
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: "This package helps to connect to Push backend using websockets built on top of Socket.IO"
+version: 0.0.1-alpha
+homepage: https://docs.push.org/developers/developer-tooling/push-sdk/sdk-packages-details/pushprotocol-socket
+repository: https://github.com/ethereum-push-notification-service/push-socket-client-dart
 
 environment:
   sdk: ^3.0.4
