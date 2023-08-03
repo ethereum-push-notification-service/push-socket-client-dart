@@ -24,9 +24,12 @@ class SocketInputOptions {
 class SocketOptions {
   final bool autoConnect;
   final int reconnectionAttempts;
+  final int? reconnectionDelay;
+  final int? reconnectionDelayMax;
 
-  SocketOptions({
-    this.autoConnect = true,
-    this.reconnectionAttempts = 5,
-  });
+  SocketOptions(
+      {this.autoConnect = true,
+      this.reconnectionAttempts = 5,
+      this.reconnectionDelay,
+      this.reconnectionDelayMax});
 }

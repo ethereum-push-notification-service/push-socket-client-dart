@@ -25,6 +25,14 @@ io.Socket? createSocketConnection(SocketInputOptions options) {
     } else {
       optionsBuilder.disableAutoConnect();
     }
+    if (options.socketOptions.reconnectionDelay != null) {
+      optionsBuilder
+          .setReconnectionDelay(options.socketOptions.reconnectionDelay as int);
+    }
+    if (options.socketOptions.reconnectionDelayMax != null) {
+      optionsBuilder.setReconnectionDelayMax(
+          options.socketOptions.reconnectionDelayMax as int);
+    }
 
     io.Socket socket = io.io(
       pushWSUrl,
