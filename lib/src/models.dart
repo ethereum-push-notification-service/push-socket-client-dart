@@ -1,18 +1,15 @@
-
 import '../push_socket_client_dart.dart';
 
 class SocketInputOptions {
   final String user;
   final String env;
   final String socketType;
-  final String apiKey;
   final SocketOptions socketOptions;
 
   SocketInputOptions({
     required this.user,
     required this.env,
     required this.socketType,
-    this.apiKey = '',
     required this.socketOptions,
   }) {
     assert(socketType == SOCKETTYPES.NOTIFICATION ||
@@ -27,9 +24,12 @@ class SocketInputOptions {
 class SocketOptions {
   final bool autoConnect;
   final int reconnectionAttempts;
+  final int? reconnectionDelay;
+  final int? reconnectionDelayMax;
 
-  SocketOptions({
-    this.autoConnect = true,
-    this.reconnectionAttempts = 5,
-  });
+  SocketOptions(
+      {this.autoConnect = true,
+      this.reconnectionAttempts = 5,
+      this.reconnectionDelay,
+      this.reconnectionDelayMax});
 }
