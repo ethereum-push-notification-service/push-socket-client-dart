@@ -15,16 +15,20 @@ io.Socket? createSocketConnection(SocketInputOptions options) {
       query = {'mode': 'chat', 'did': userAddressInCAIP};
     }
 
+    final optionsBuilder = io.OptionBuilder()
+        .setTransports(['websocket'])
+        .setReconnectionAttempts(options.socketOptions.reconnectionAttempts)
+        .setQuery(query);
+
+    if (options.socketOptions.autoConnect == true) {
+      optionsBuilder.enableAutoConnect();
+    } else {
+      optionsBuilder.disableAutoConnect();
+    }
+
     io.Socket socket = io.io(
       pushWSUrl,
-      {
-        ...io.OptionBuilder()
-            .setTransports(['websocket'])
-            .enableAutoConnect()
-            .setReconnectionAttempts(options.socketOptions.reconnectionAttempts)
-            .setQuery(query)
-            .build(),
-      },
+      optionsBuilder.build(),
     );
     return socket;
   } catch (e) {

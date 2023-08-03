@@ -1,18 +1,15 @@
-
 import '../push_socket_client_dart.dart';
 
 class SocketInputOptions {
   final String user;
   final String env;
   final String socketType;
-  final String apiKey;
   final SocketOptions socketOptions;
 
   SocketInputOptions({
     required this.user,
     required this.env,
     required this.socketType,
-    this.apiKey = '',
     required this.socketOptions,
   }) {
     assert(socketType == SOCKETTYPES.NOTIFICATION ||
